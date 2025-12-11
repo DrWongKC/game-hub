@@ -1,5 +1,6 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import { useScreenSize } from "./useScreenSize.tsx";
+import NavBar from "./components/NavBar.tsx";
 
 function App() {
   const screenSize = useScreenSize();
@@ -15,21 +16,17 @@ function App() {
         "aside main"`,
       }}
     >
-      <GridItem area="nav" bg="coral">
-        Nav
+      <GridItem area="nav">
+        <NavBar />
       </GridItem>
       <Show
         when={
           screenSize === "lg" || screenSize === "xl" || screenSize === "2xl"
         }
       >
-        <GridItem area="aside" bg="gold">
-          Aside
-        </GridItem>
+        <GridItem area="aside">Aside</GridItem>
       </Show>
-      <GridItem area="main" bg="dodgerblue">
-        Main
-      </GridItem>
+      <GridItem area="main">Main</GridItem>
     </Grid>
   );
 }
